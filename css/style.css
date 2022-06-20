@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 450px;
+    /* width: 100vw; */
+}
+
+table,
+td {
+    border: 1px solid black;
+    width: 100%;
+}
