@@ -7,136 +7,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sudoku solver</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
 </head>
 
 <body>
-    <section class="puzzle">
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+    <nav>
+        <section class="nav-container">
+            <h1 class="title">sudoku solver</h1>
+            <div id="open-theme">
+                <span class="uil uil-palette">Themes</span>
+            </div>
+            <section class="theme-container">
+                <i id="close-theme" class="uil uil-times"></i>
+                <h4>Theme switch</h4>
+                <div class="theme-toggle">
+                    <span><i class="uil uil-sun"></i></span>
+                    <span class="toggle"></span>
+                    <span><i class="uil uil-moon"></i></span>
+                </div>
+                <h4>choose board color</h4>
+                <div class="board-colors">
+                    <div class="colors" style="background:rgb(192,192,192);"></div>
+                    <div class="colors" style="background:rgb(135,206,250);"></div>
+                    <div class="colors" style="background:rgb(243,229,171);"></div>
+                    <div class="colors" style="background:rgb(158,253,56);"></div>
+                    <div class="colors" style="background:rgb(105,53,156);"></div>
+                    <div class="colors" style="background:rgb(127,23,52);"></div>
+                </div>
+            </section>
+        </section>
+    </nav>
+    <section class="puzzle-container">
+        <div class="puzzle">
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-                <td><input type="text" class="box"></td>
-            </tr>
-        </table>
-
+            <table>
+                <tr>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                    <td><input type="text" class="box" maxlength="1"></td>
+                </tr>
+            </table>
+        </div>
     </section>
     <button class="solve"></button>
     <button class="reset"></button>
