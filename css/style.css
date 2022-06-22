@@ -12,15 +12,15 @@
     --white: rgb(255, 255, 255);
     --light-bg: rgb(152, 152, 152);
 
-    --nav-size: 70px;
-    --sudoku-cell-size: 50px;
+    --nav-size: 60px;
+    --sudoku-cell-size: 40px;
 
-    --border: 1px solid rgba(0, 0, 0, 0.1);
+    --border: rgb(250, 235, 215);
     --border-radius: 10px;
     --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    --space-y: 20px;
+    --space-y: 10px;
     --gap: 5px;
-    --font-size: 25px;
+    --font-size: 20px;
     --font-size-lg: 32px;
     --font-size-xl: 48px;
 }
@@ -33,13 +33,13 @@
     --filled-bg: rgb(0, 0, 0);
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Kdam Thmor Pro',
         sans-serif;
+    text-transform: capitalize;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -47,25 +47,24 @@ body {
     height: 100vh;
     background-color: var(--bg-body);
     user-select: none;
+    transition: 0.1s all ease;
 }
 
-a {
-    text-decoration: none;
-    color: unset;
+body.dark {
+    --bg-main: rgb(42, 42, 56);
+    --bg-body: rgb(26, 26, 46);
+    --color-txt: rgb(106, 106, 106);
+    --filled-color: rgb(79, 79, 99);
+    --filled-bg: rgb(0, 0, 0);
+    --border: rgba(250, 235, 215, 0.3);
 }
 
-ul {
-    list-style-type: none;
-}
-
-table {
-    /* border: 2px solid black; */
-    border: 2px solid var(--bg-main);
+body.active {
+    padding-right: 300px;
 }
 
 nav {
     text-transform: capitalize;
-    margin-bottom: 50px;
     text-align: center;
     width: 100%;
     top: 0;
@@ -73,7 +72,7 @@ nav {
     color: var(--color-txt);
     box-shadow: 5px 2px var(--bg-main);
     z-index: 99;
-    /* position: fixed; */
+    position: fixed;
 }
 
 .nav-container {
@@ -92,9 +91,9 @@ nav {
 }
 
 #open-theme {
-    font-size: var(--font-size);
+    font-size: var(--font-size-lg);
     cursor: pointer;
-    color: var(--black);
+    color: var(--color-txt);
     z-index: 10;
 }
 
@@ -102,14 +101,14 @@ nav {
     position: fixed;
     top: 0;
     right: -100%;
-    padding: 5px 20px;
+    padding: 5px 10px;
     background: var(--bg-body);
-    border-left: var(--border);
+    border-left: 1px solid var(--border);
     height: 100vh;
     width: 300px;
     z-index: 99;
     text-align: left;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .theme-container.active {
@@ -118,15 +117,15 @@ nav {
 
 .theme-container #close-theme {
     font-size: var(--font-size-lg);
-    color: var(--black);
+    color: var(--color-txt);
     cursor: pointer;
 }
 
 .theme-container h4 {
     text-align: center;
-    color: var(--black);
-    border-top: var(--border);
-    border-bottom: var(--border);
+    color: var(--color-txt);
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
     padding: 15px 0;
     margin: 20px 0;
 }
@@ -187,22 +186,136 @@ nav {
     opacity: 0.5;
 }
 
-.puzzle-container {
+.theme-container .game-mode {
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding: 15px 20px;
+    margin: 20px 0;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    color: var(--color-txt);
+}
+
+.game-options {
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 
+.button {
+    padding: 5px;
+    background: var(--blue);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.puzzle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: var(--nav-size);
+}
+
+.puzzle {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-gap: var(--gap);
+}
+
+.box {
+    background: var(--bg-main);
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+}
+
 .puzzle input {
-    width: 50px;
-    height: 50px;
-    font-size: 45px;
+    width: var(--sudoku-cell-size);
+    height: var(--sudoku-cell-size);
+    font-size: 20px;
     font-family: inherit;
     text-align: center;
     border: 2px solid var(--bg-main);
+    border-radius: var(--border-radius);
 }
 
-.puzzle input:hover,
-.puzzle input:focus {
-    border-color: var(--blue);
+.puzzle input:hover {
+    border: 2px solid var(--blue);
+}
+
+.puzzle .filled {
+    background: var(--filled-bg);
+    color: var(--filled-color);
+}
+
+.puzzle .selected {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.puzzle .hover {
+    border: 3px solid var(--blue);
+}
+
+.puzzle .hover .dark {
+    border: 1px solid var(--blue);
+}
+
+.puzzle .error {
+    color: var(--white);
+    background: var(--red);
+}
+
+.game-info-container {
+    margin-top: var(--space-y);
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 25%;
+}
+
+.game-info {
+    height: 45px;
+    background: var(--bg-main);
+    color: var(--color-txt);
+    border-radius: var(--border-radius);
+    display: grid;
+    place-items: center;
+    padding: 0 15px;
+    font-size: var(--font-size);
+}
+
+.numbers {
+    display: grid;
+    margin-top: var(--space-y);
+    padding-bottom: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.number {
+    height: var(--sudoku-cell-size);
+    width: var(--sudoku-cell-size);
+    border-radius: var(--border-radius);
+    background: var(--bg-main);
+    color: var(--color-txt);
+    display: grid;
+    place-items: center;
+    font-size: var(--font-size);
+    cursor: pointer;
+}
+
+.delete {
+    background: var(--red);
+    color: var(--white);
 }

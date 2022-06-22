@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sudoku solver</title>
+    <title>sudoku</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
 </head>
@@ -13,9 +13,9 @@
 <body>
     <nav>
         <section class="nav-container">
-            <h1 class="title">sudoku solver</h1>
+            <h1 class="title">sudoku</h1>
             <div id="open-theme">
-                <span class="uil uil-palette">Themes</span>
+                <span class="uil uil-list-ui-alt"></span>
             </div>
             <section class="theme-container">
                 <i id="close-theme" class="uil uil-times"></i>
@@ -25,150 +25,139 @@
                     <span class="toggle"></span>
                     <span><i class="uil uil-moon"></i></span>
                 </div>
-                <h4>choose board color</h4>
+                <h4>change board color</h4>
                 <div class="board-colors">
-                    <div class="colors" style="background:rgb(192,192,192);"></div>
+                    <div class="colors" style="background:rgb(255,207,241);"></div>
                     <div class="colors" style="background:rgb(135,206,250);"></div>
                     <div class="colors" style="background:rgb(243,229,171);"></div>
                     <div class="colors" style="background:rgb(158,253,56);"></div>
                     <div class="colors" style="background:rgb(105,53,156);"></div>
                     <div class="colors" style="background:rgb(127,23,52);"></div>
                 </div>
+
+                <div class="game-mode">
+                    <label>difficulty</label>
+                    <select id="level">
+                        <option value="easy">easy</option>
+                        <option value="medium">medium</option>
+                        <option value="hard">hard</option>
+                    </select>
+                </div>
+                <div class="game-options">
+                    <button class="button" id="pause-game"><i class="uil uil-pause"></i>pause</button>
+                    <button class="button" id="solve-game"><i class="uil uil-puzzle-piece"></i>solve</button>
+                    <button class="button" id="new-game"><i class="uil uil-redo"></i>restart</button>
+                </div>
             </section>
         </section>
     </nav>
     <section class="puzzle-container">
         <div class="puzzle">
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                    <td><input type="text" class="box" maxlength="1"></td>
-                </tr>
-            </table>
+            <input type="text" class="box" maxlength="1" readonly value="4">
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
+            <input type="text" class="box" maxlength="1" readonly>
         </div>
-    </section>
-    <button class="solve"></button>
-    <button class="reset"></button>
+        <div class="game-info-container">
+            <div class="game-info">
+                <span id="game-level">easy</span>
+            </div>
+            <div class="game-info">
+                <span id="game-time">9:41</span>
+            </div>
+        </div>
 
+        <div class="numbers">
+            <button class="number" value="1">1</button>
+            <button class="number" value="2">2</button>
+            <button class="number" value="3">3</button>
+            <button class="number" value="4">4</button>
+            <button class="number" value="5">5</button>
+            <button class="number" value="6">6</button>
+            <button class="number" value="7">7</button>
+            <button class="number" value="8">8</button>
+            <button class="number" value="9">9</button>
+            <button class="number delete"><i class="uil uil-trash"></i></button>
+        </div>
+
+    </section>
     <script src="./js/script.js"></script>
 </body>
 
