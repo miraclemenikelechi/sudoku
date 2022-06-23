@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 
 :root {
-    --bg-body: rgb(255, 255, 255);
+    --bg-body: rgb(190, 190, 190);
     --color-txt: rgb(0, 0, 0);
     --filled-color: rgb(0, 0, 0);
     --filled-bg: rgb(202, 240, 248);
 
     --black: rgb(0, 0, 0);
-    --blue: rgb(0, 174, 239);
+    --blue: rgb(0, 191, 255);
     --red: rgb(233, 30, 99);
     --white: rgb(255, 255, 255);
     --light-bg: rgb(152, 152, 152);
+    --board: rgb(0, 191, 255);
 
     --nav-size: 60px;
     --sudoku-cell-size: 40px;
@@ -27,7 +28,7 @@
 
 .dark {
     --bg-main: rgb(42, 42, 56);
-    --bg-body: rgb(26, 26, 46);
+    --bg-body: rgb(25, 31, 36);
     --color-txt: rgb(106, 106, 106);
     --filled-color: rgb(79, 79, 99);
     --filled-bg: rgb(0, 0, 0);
@@ -51,8 +52,8 @@ body {
 }
 
 body.dark {
-    --bg-main: rgb(42, 42, 56);
-    --bg-body: rgb(26, 26, 46);
+    --bg-main: rgb(42, 43, 49);
+    --bg-body: rgb(25, 31, 36);
     --color-txt: rgb(106, 106, 106);
     --filled-color: rgb(79, 79, 99);
     --filled-bg: rgb(0, 0, 0);
@@ -142,7 +143,7 @@ nav {
 }
 
 .theme-container .theme-toggle .toggle {
-    height: 32px;
+    height: 30px;
     width: 75px;
     background: var(--light-bg);
     position: relative;
@@ -180,6 +181,7 @@ nav {
     height: 30px;
     width: 30px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .theme-container .board-colors .colors:hover {
@@ -206,7 +208,7 @@ nav {
 
 .button {
     padding: 5px;
-    background: var(--blue);
+    background: var(--board);
     border: none;
     outline: none;
     border-radius: 5px;
@@ -214,6 +216,7 @@ nav {
     font-size: 16px;
     text-align: center;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .puzzle-container {
@@ -258,7 +261,7 @@ nav {
 }
 
 .puzzle .selected {
-    background: var(--blue);
+    background: var(--board);
     color: var(--white);
 }
 
@@ -278,10 +281,17 @@ nav {
 .game-info-container {
     margin-top: var(--space-y);
     margin-bottom: 10px;
-    display: grid;
+    display: inline-flex;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 25%;
+    gap: 15px;
+}
+
+.game-info-container button {
+    height: 45px;
+    width: 120px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    display: block;
 }
 
 .game-info {
@@ -293,12 +303,13 @@ nav {
     place-items: center;
     padding: 0 15px;
     font-size: var(--font-size);
+    width: 120px;
 }
 
 .numbers {
     display: grid;
     margin-top: var(--space-y);
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     grid-template-columns: repeat(5, 1fr);
     gap: 5px;
 }
