@@ -17,11 +17,12 @@ const puzzle = document.querySelector(".puzzle"),
         GRID_SIZE: 9,
         BOX_SIZE: 3,
         NUMBERS: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-        DIFFICULTY: ["easy", "medium", "hard"]
+        DIFFICULTY: ["easy", "medium", "hard"],
+        LEVEL: [29, 47, 74]
     };
 let i,
     levelIndex = 0,
-    level = GAME.DIFFICULTY[levelIndex],
+    level = GAME.LEVEL[levelIndex],
     timer = -1,
     seconds = 0,
     pause = false,
@@ -70,12 +71,29 @@ const puzzleGrid = () => {
     }
 };
 
+// clear old sudoku
+const clearSudoku = () => {
+    for (i = 0; i < Math.pow(GAME.GRID_SIZE, 2); i++) {
+        input[i].innerHTML = "";
+        input[i].classList.remove("filled");
+        input[i].classList.remove("selected");
+    }
+};
+
 // generate puzzle
 const gamePuzzle = () => {
+    clearSudoku();
     game = sudokuGame(level);
     gameSolution = [...game.question];
-
-    console.table(gameSolution);
+    for (i = 0; i < Math.pow(GAME.GRID_SIZE, 2); i++) {
+        let row = Math.floor(i / GAME.GRID_SIZE);
+        let column = i % GAME.GRID_SIZE;
+        input[i].setAttribute("data-value", game.question[row][column]);
+        if (game.question[row][column] !== 0) {
+            input[i].classList.add("filled");
+            input[i].innerHTML = game.question[row][column];
+        }
+    }
 };
 
 const gameGrid = (size) => {
@@ -90,7 +108,7 @@ const gameGrid = (size) => {
 };
 
 // check for duplicate
-// for columns
+// in columns
 const isColumnSafe = (grid, column, value) => {
     for (i = 0; i < GAME.GRID_SIZE; i++) {
         if (grid[i][column] === value) {
@@ -99,10 +117,10 @@ const isColumnSafe = (grid, column, value) => {
         return true;
     }
 };
-// for rows
+// in rows
 const isRowSafe = (grid, row, value) => {
     for (i = 0; i < GAME.GRID_SIZE; i++) {
-        if (grid[i][row] === value) {
+        if (grid[row][i] === value) {
             return false;
         }
         return true;
@@ -194,7 +212,7 @@ const sudokuCheck = (grid) => {
         row: -1,
         column: -1
     };
-    if (!getUnassigned(grid, position)) {
+    if (!getUnassigned(grid, unassingedPosition)) {
         return true;
     }
     grid.forEach((row, a) => {
@@ -214,9 +232,8 @@ const sudokuCheck = (grid) => {
 };
 
 // generate random numbers
-const random = () => {
+const random = () =>
     Math.floor(Math.random() * GAME.GRID_SIZE);
-};
 
 const removeCells = (grid, level) => {
     let result = [...grid];
@@ -249,16 +266,14 @@ const sudokuGame = (level) => {
 };
 
 // user selects game level
-gameLevel.onchange = (selected) => {
-    selected.preventDefault();
-    levelIndex = gameLevel.selectedIndex;
-    level = GAME.DIFFICULTY[levelIndex];
-    console.log(level, levelIndex);
+gameLevel.onclick = (selected) => {
+    levelIndex = levelIndex + 1 > GAME.LEVEL.length - 1 ? 0 : levelIndex + 1;
+    level = GAME.LEVEL[levelIndex];
+    selected.target.innerHTML = GAME.DIFFICULTY[levelIndex];
 };
 
 // start game
 startGame.onclick = () => {
-    gamePuzzle();
     // game timer
     if (timer == -1) {
         timer = setInterval(() => {
@@ -283,9 +298,11 @@ startGame.onclick = () => {
         timer = -1;
     }
 };
+gamePuzzle();
 
 // reset game
 reset.onclick = () => {
+    gamePuzzle();
     // reset timer
     startGame.innerHTML = `<i class="uil uil-play"></i>start`;
     minute.textContent = "00";

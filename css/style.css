@@ -11,7 +11,7 @@
     --red: rgb(233, 30, 99);
     --white: rgb(255, 255, 255);
     --light-bg: rgb(152, 152, 152);
-    --board: rgb(0, 191, 255);
+    --board: rgba(0, 191, 255, 0.3);
 
     --nav-size: 60px;
     --sudoku-cell-size: 40px;
@@ -206,6 +206,11 @@ nav {
     align-items: center;
 }
 
+#level {
+    width: 70px;
+    color: var(--black);
+}
+
 .button {
     padding: 5px;
     background: var(--board);
@@ -225,6 +230,7 @@ nav {
     align-items: center;
     height: 100%;
     padding-top: var(--nav-size);
+    transition: all 0.2s ease-in-out;
 }
 
 .puzzle {
@@ -235,13 +241,14 @@ nav {
 }
 
 .box {
-    background: var(--bg-main);
-    color: var(--blue);
+    background: var(--board);
+    color: var(--black);
     display: grid;
     place-items: center;
+    transition: all 0.1s ease-in-out;
 }
 
-.puzzle input {
+.puzzle div {
     width: var(--sudoku-cell-size);
     height: var(--sudoku-cell-size);
     font-size: 20px;
@@ -251,7 +258,7 @@ nav {
     border-radius: var(--border-radius);
 }
 
-.puzzle input:hover {
+.puzzle div:hover {
     border: 2px solid var(--blue);
 }
 
